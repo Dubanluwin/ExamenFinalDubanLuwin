@@ -27,13 +27,14 @@ public class UsuarioController {
 
     @GetMapping("/inicio")
     public String inicio(Model model) {
-        logger.info("Pasando por GetMapping inicio");
+        logger.info("Pasando por GetMapping /inicio");
         model.addAttribute("usuario", new UsuarioEntity());
         return "paginaPrincipal";
     }
 
     @PostMapping("/registrarUsuario")
     public String registrarUsuario(@ModelAttribute UsuarioEntity usuario, Model model) {
+        logger.info("Pasando por PostMapping /registrarUsuario");
         LocalDate hoy = LocalDate.now();
         LocalDate fechaNacimiento = usuario.getFechaNacimiento();
 
@@ -45,16 +46,28 @@ public class UsuarioController {
         int edad = Period.between(fechaNacimiento, hoy).getYears();
 
         if (edad < 18) {
+            logger.error("La edad del usuario: " + usuario.getApellido() + ", con ID: " + usuario.getId()
+                    + ", es menor de 18 años.");
             model.addAttribute("error", "Debe ser mayor de 18 años para registrarse. Edad actual: " + edad);
+            return "usuarioRegistrado";
+        }
+        if (usuario.getNombre().length() > 50) {
+            logger.error("El nombre de usuario: " + usuario.getNombre() + ", con ID: " + usuario.getId()
+                    + ", supera los 50 caracteres permitidos.");
+            model.addAttribute("error",
+                    "El nombre no debe contener más de 50 caracteres para registrarse. Nombre actual: "
+                            + usuario.getNombre());
             return "usuarioRegistrado";
         }
 
         try {
             service.registrarUsuario(usuario);
             model.addAttribute("usuario", usuario);
+            logger.info("Usuario registrado correctamente.");
             return "usuarioRegistrado";
         } catch (IllegalArgumentException e) {
             model.addAttribute("error", e.getMessage());
+            logger.error("El usuario no se ha podido registrar.");
             return "usuarioRegistrado";
         }
     }
@@ -63,6 +76,8 @@ public class UsuarioController {
     public String listarUsuarios(@RequestParam(required = false) String nombre,
             @RequestParam(required = false) String tipo,
             Model model) {
+
+        logger.info("Pasando por GetMapping /usuarios");
         List<UsuarioEntity> usuarios;
 
         if ((nombre == null || nombre.isEmpty()) && (tipo == null || tipo.isEmpty())) {

@@ -78,7 +78,8 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- Depedencia para las validaciones-->
+		<!-- Depedencia para las validaciones, creo que no me sirve, no lo elimino por si daño
+		algo-->
 		<dependency>
 			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator</artifactId>
