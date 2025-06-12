@@ -33,30 +33,13 @@ public class UsuarioController {
     }
 
     @PostMapping("/registrarUsuario")
-    public String registrarUsuario(@ModelAttribute UsuarioEntity usuario, Model model) {
-        logger.info("Pasando por PostMapping /registrarUsuario");
-        LocalDate hoy = LocalDate.now();
-        LocalDate fechaNacimiento = usuario.getFechaNacimiento();
+    public String registrarUsuario(@ModelAttribute("usuario") UsuarioEntity usuario, Model model) {
+        String error = service.validarUsuario(usuario);
 
-        if (fechaNacimiento == null) {
-            model.addAttribute("error", "La fecha de nacimiento es obligatoria.");
-            return "usuarioRegistrado";
-        }
-
-        int edad = Period.between(fechaNacimiento, hoy).getYears();
-
-        if (edad < 18) {
-            logger.error("La edad del usuario: " + usuario.getApellido() + ", con ID: " + usuario.getId()
-                    + ", es menor de 18 años.");
-            model.addAttribute("error", "Debe ser mayor de 18 años para registrarse. Edad actual: " + edad);
-            return "usuarioRegistrado";
-        }
-        if (usuario.getNombre().length() > 50) {
-            logger.error("El nombre de usuario: " + usuario.getNombre() + ", con ID: " + usuario.getId()
-                    + ", supera los 50 caracteres permitidos.");
-            model.addAttribute("error",
-                    "El nombre no debe contener más de 50 caracteres para registrarse. Nombre actual: "
-                            + usuario.getNombre());
+        if (error != null) {
+            logger.error("Error de validación para el usuario: {}, ID: {} - {}", usuario.getNombre(), usuario.getId(),
+                    error);
+            model.addAttribute("error", error);
             return "usuarioRegistrado";
         }
 

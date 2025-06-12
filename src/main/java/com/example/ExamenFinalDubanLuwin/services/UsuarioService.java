@@ -7,6 +7,7 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.example.ExamenFinalDubanLuwin.controllers.UsuarioController;
 import com.example.ExamenFinalDubanLuwin.entities.UsuarioEntity;
@@ -59,4 +60,27 @@ public class UsuarioService {
         }
         return repository.findByTipoIgnoreCase(tipo);
     }
+
+    public String validarUsuario(UsuarioEntity usuario) {
+        LocalDate hoy = LocalDate.now();
+        LocalDate fechaNacimiento = usuario.getFechaNacimiento();
+
+        if (fechaNacimiento == null) {
+            return "La fecha de nacimiento es obligatoria.";
+        }
+
+        int edad = Period.between(fechaNacimiento, hoy).getYears();
+
+        if (edad < 18) {
+            return "Debe ser mayor de 18 años para registrarse. Edad actual: " + edad;
+        }
+
+        if (usuario.getNombre().length() > 50) {
+            return "El nombre no debe contener más de 50 caracteres para registrarse. Nombre actual: "
+                    + usuario.getNombre();
+        }
+
+        return null;
+    }
+
 }
