@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Usuario Registrado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            padding: 40px;
+        }
+
+        .card {
+            background: white;
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .info {
+            margin: 10px 0;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <h2>Usuario Registrado</h2>
+
+        <div th:if="${error}" style="color: red; font-weight: bold; margin-bottom: 15px;">
+            <p th:text="${error}"></p>
+        </div>
+
+        <div th:if="${usuario != null and error == null}">
+            <div class="info"><span class="label">Nombre:</span> <span th:text="${usuario.nombre}"></span></div>
+            <div class="info"><span class="label">Apellidos:</span> <span th:text="${usuario.apellido}"></span></div>
+            <div class="info"><span class="label">DNI:</span> <span th:text="${usuario.dni}"></span></div>
+            <div class="info"><span class="label">Tipo:</span> <span th:text="${usuario.tipo}"></span></div>
+            <div class="info"><span class="label">Fecha de nacimiento:</span> <span
+                    th:text="${usuario.fechaNacimiento}"></span></div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

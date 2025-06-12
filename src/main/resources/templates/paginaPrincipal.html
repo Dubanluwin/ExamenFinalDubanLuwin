@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Registro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            max-width: 400px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form th:action="@{/registrarUsuario}" th:object="${usuario}" method="post">
+        <h2>Formulario de Registro</h2>
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" th:field="*{nombre}" required>
+
+        <label for="apellido">Apellidos:</label>
+        <input type="text" id="apellido" th:field="*{apellido}" required>
+
+        <label for="dni">DNI:</label>
+        <input type="text" id="dni" th:field="*{dni}" required>
+
+        <label for="tipo">Tipo:</label>
+        <select id="tipo" th:field="*{tipo}" required>
+            <option value="Free">Free</option>
+            <option value="Classic">Classic</option>
+            <option value="Business">Business</option>
+            <option value="VIP">VIP</option>
+        </select>
+
+        <label for="fechaNacimiento">Fecha de nacimiento:</label>
+        <input type="date" id="fechaNacimiento" th:field="*{fechaNacimiento}" required>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+</body>
+
+</html>
