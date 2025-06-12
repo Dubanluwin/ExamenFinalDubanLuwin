@@ -2,6 +2,7 @@ package com.example.ExamenFinalDubanLuwin.controllers;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.ExamenFinalDubanLuwin.entities.UsuarioEntity;
 import com.example.ExamenFinalDubanLuwin.services.UsuarioService;
@@ -56,4 +58,21 @@ public class UsuarioController {
             return "usuarioRegistrado";
         }
     }
+
+    @GetMapping("/usuarios")
+    public String listarUsuarios(@RequestParam(required = false) String nombre,
+            @RequestParam(required = false) String tipo,
+            Model model) {
+        List<UsuarioEntity> usuarios;
+
+        if ((nombre == null || nombre.isEmpty()) && (tipo == null || tipo.isEmpty())) {
+            usuarios = service.obtenerTodosUsuarios();
+        } else {
+            usuarios = service.buscarUsuarios(nombre, tipo);
+        }
+
+        model.addAttribute("usuarios", usuarios);
+        return "listaUsuarios";
+    }
+
 }

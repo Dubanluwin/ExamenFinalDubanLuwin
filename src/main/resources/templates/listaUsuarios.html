@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Usuarios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form input,
+        form select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #218838;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        th {
+            background: #007BFF;
+            color: white;
+        }
+
+        th a {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .volver-btn {
+            display: block;
+            margin: 30px auto 0;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .volver-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Usuarios Registrados</h2>
+
+    <form th:action="@{/usuarios}" method="get">
+        <input type="text" name="nombre" placeholder="Filtrar por nombre" th:value="${param.nombre}">
+        <select name="tipo">
+            <option value="">Todos los tipos</option>
+            <option value="Free" th:selected="${param.tipo == 'Free'}">Free</option>
+            <option value="Classic" th:selected="${param.tipo == 'Classic'}">Classic</option>
+            <option value="Business" th:selected="${param.tipo == 'Business'}">Business</option>
+            <option value="VIP" th:selected="${param.tipo == 'VIP'}">VIP</option>
+        </select>
+        <button type="submit">Filtrar</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th><a href="#" onclick="alert('Ordenando por Nombre')">Nombre</a></th>
+                <th><a href="#" onclick="alert('Ordenando por Apellido')">Apellido</a></th>
+                <th><a href="#" onclick="alert('Ordenando por DNI')">DNI</a></th>
+                <th><a href="#" onclick="alert('Ordenando por Tipo')">Tipo</a></th>
+                <th><a href="#" onclick="alert('Ordenando por Fecha de nacimiento')">Fecha de nacimiento</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="usuario : ${usuarios}" th:onclick="|alert('ID del usuario: ${usuario.id}')|"
+                style="cursor: pointer;">
+                <td th:text="${usuario.nombre}"></td>
+                <td th:text="${usuario.apellido}"></td>
+                <td th:text="${usuario.dni}"></td>
+                <td th:text="${usuario.tipo}"></td>
+                <td th:text="${usuario.fechaNacimiento}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button type="button" class="volver-btn" onclick="window.location.href='/inicio'">
+        Volver a Página Principal
+    </button>
+
+</body>
+
+</html>
