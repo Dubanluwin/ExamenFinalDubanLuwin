@@ -14741,3 +14741,59 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 2025-06-12 19:51:20 [http-nio-9090-exec-1] INFO  c.e.E.controllers.UsuarioController - Pasando por GetMapping /usuarios
 2025-06-12 19:51:20 [http-nio-9090-exec-1] INFO  c.e.E.controllers.UsuarioController - Entrando la clase Usuario Service, obteniendo todos los usuarios de la base de datos.
 2025-06-12 19:51:20 [http-nio-9090-exec-1] DEBUG org.hibernate.SQL - select ue1_0.id,ue1_0.apellido,ue1_0.dni,ue1_0.fecha_nacimiento,ue1_0.nombre,ue1_0.tipo from tabla_usuario ue1_0
+2025-06-13 17:07:47 [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2025-06-13 17:07:47 [restartedMain] INFO  c.e.E.ExamenFinalDubanLuwinApplication - Starting ExamenFinalDubanLuwinApplication using Java 17.0.12 with PID 5656 (C:\Users\Tardes.DESKTOP-4Q09SGH\Desktop\Luwin\SpringBoot\ExamenFinal\ExamenFinalDubanLuwin\target\classes started by Tardes in C:\Users\Tardes.DESKTOP-4Q09SGH\Desktop\Luwin\SpringBoot\ExamenFinal\ExamenFinalDubanLuwin)
+2025-06-13 17:07:47 [restartedMain] INFO  c.e.E.ExamenFinalDubanLuwinApplication - No active profile set, falling back to 1 default profile: "default"
+2025-06-13 17:07:47 [restartedMain] INFO  o.s.b.d.restart.ChangeableUrls - The Class-Path manifest attribute in C:\Users\Tardes.DESKTOP-4Q09SGH\.m2\repository\com\oracle\database\jdbc\ojdbc11\23.7.0.25.01\ojdbc11-23.7.0.25.01.jar referenced one or more files that do not exist: file:/C:/Users/Tardes.DESKTOP-4Q09SGH/.m2/repository/com/oracle/database/jdbc/ojdbc11/23.7.0.25.01/oraclepki.jar
+2025-06-13 17:07:47 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-06-13 17:07:47 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-06-13 17:07:48 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-13 17:07:48 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 41 ms. Found 1 JPA repository interface.
+2025-06-13 17:07:49 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+2025-06-13 17:07:49 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+2025-06-13 17:07:49 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-06-13 17:07:49 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.41]
+2025-06-13 17:07:49 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-06-13 17:07:49 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1930 ms
+2025-06-13 17:07:50 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-13 17:07:50 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.15.Final
+2025-06-13 17:07:50 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2025-06-13 17:07:50 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-13 17:07:50 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2025-06-13 17:07:51 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@49a48e97
+2025-06-13 17:07:51 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2025-06-13 17:07:51 [restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 21.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-13 17:07:52 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-13 17:07:52 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-13 17:07:52 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-13 17:07:53 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-06-13 17:07:53 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2025-06-13 17:07:53 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+2025-06-13 17:07:53 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+2025-06-13 17:07:53 [restartedMain] INFO  c.e.E.ExamenFinalDubanLuwinApplication - Started ExamenFinalDubanLuwinApplication in 6.183 seconds (process running for 6.508)
+2025-06-13 17:08:42 [http-nio-9090-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-06-13 17:08:42 [http-nio-9090-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-06-13 17:08:42 [http-nio-9090-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-06-13 17:08:49 [http-nio-9090-exec-3] INFO  c.e.E.controllers.UsuarioController - Pasando por GetMapping /inicio
+2025-06-13 17:08:51 [http-nio-9090-exec-5] INFO  c.e.E.controllers.UsuarioController - Pasando por GetMapping /usuarios
+2025-06-13 17:08:51 [http-nio-9090-exec-5] INFO  c.e.E.controllers.UsuarioController - Entrando la clase Usuario Service, obteniendo todos los usuarios de la base de datos.
+2025-06-13 17:08:51 [http-nio-9090-exec-5] DEBUG org.hibernate.SQL - select ue1_0.id,ue1_0.apellido,ue1_0.dni,ue1_0.fecha_nacimiento,ue1_0.nombre,ue1_0.tipo from tabla_usuario ue1_0
+2025-06-13 17:08:53 [http-nio-9090-exec-6] INFO  c.e.E.controllers.UsuarioController - Pasando por GetMapping /usuarios
+2025-06-13 17:08:53 [http-nio-9090-exec-6] INFO  c.e.E.controllers.UsuarioController - Entrando la clase Usuario Service, buscarUsuarios()
+2025-06-13 17:08:53 [http-nio-9090-exec-6] DEBUG org.hibernate.SQL - select ue1_0.id,ue1_0.apellido,ue1_0.dni,ue1_0.fecha_nacimiento,ue1_0.nombre,ue1_0.tipo from tabla_usuario ue1_0 where upper(ue1_0.tipo)=upper(?)
+2025-06-13 17:08:54 [http-nio-9090-exec-7] INFO  c.e.E.controllers.UsuarioController - Pasando por GetMapping /usuarios
+2025-06-13 17:08:54 [http-nio-9090-exec-7] INFO  c.e.E.controllers.UsuarioController - Entrando la clase Usuario Service, buscarUsuarios()
+2025-06-13 17:08:54 [http-nio-9090-exec-7] DEBUG org.hibernate.SQL - select ue1_0.id,ue1_0.apellido,ue1_0.dni,ue1_0.fecha_nacimiento,ue1_0.nombre,ue1_0.tipo from tabla_usuario ue1_0 where upper(ue1_0.tipo)=upper(?)
+2025-06-13 17:08:56 [http-nio-9090-exec-8] INFO  c.e.E.controllers.UsuarioController - Pasando por GetMapping /usuarios
+2025-06-13 17:08:56 [http-nio-9090-exec-8] INFO  c.e.E.controllers.UsuarioController - Entrando la clase Usuario Service, buscarUsuarios()
+2025-06-13 17:08:56 [http-nio-9090-exec-8] DEBUG org.hibernate.SQL - select ue1_0.id,ue1_0.apellido,ue1_0.dni,ue1_0.fecha_nacimiento,ue1_0.nombre,ue1_0.tipo from tabla_usuario ue1_0 where upper(ue1_0.tipo)=upper(?)
+2025-06-13 17:08:58 [http-nio-9090-exec-9] INFO  c.e.E.controllers.UsuarioController - Pasando por GetMapping /usuarios
+2025-06-13 17:08:58 [http-nio-9090-exec-9] INFO  c.e.E.controllers.UsuarioController - Entrando la clase Usuario Service, obteniendo todos los usuarios de la base de datos.
+2025-06-13 17:08:58 [http-nio-9090-exec-9] DEBUG org.hibernate.SQL - select ue1_0.id,ue1_0.apellido,ue1_0.dni,ue1_0.fecha_nacimiento,ue1_0.nombre,ue1_0.tipo from tabla_usuario ue1_0
